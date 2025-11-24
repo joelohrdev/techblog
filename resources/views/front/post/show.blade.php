@@ -1,4 +1,14 @@
-<x-layouts.frontend>
+<x-layouts.frontend
+    :title="$post->title . ' - ' . config('app.name')"
+    :description="$post->summary ?? Str::limit(strip_tags($post->content), 155)"
+    ogType="article"
+    :ogTitle="$post->title"
+    :ogDescription="$post->summary ?? Str::limit(strip_tags($post->content), 155)"
+    :ogUrl="route('posts.show', $post)"
+    :twitterTitle="$post->title"
+    :twitterDescription="$post->summary ?? Str::limit(strip_tags($post->content), 155)"
+    :twitterUrl="route('posts.show', $post)"
+>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="animate-reveal-up running " style="animation-delay: 0s; width: 100%;">
             <a wire:navigate href="{{ route('home') }}" class="group mb-12 flex items-center text-oatmeal hover:text-burning-flame transition-colors font-mono text-xs uppercase tracking-wide">
