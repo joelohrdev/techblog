@@ -21,6 +21,10 @@ Route::view('posts', 'post.index')
     ->middleware(['auth', 'verified'])
     ->name('posts.index');
 
+Route::view('posts/create', 'post.create')
+    ->middleware(['auth', 'verified'])
+    ->name('posts.create');
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
