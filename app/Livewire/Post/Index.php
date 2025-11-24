@@ -3,6 +3,7 @@
 namespace App\Livewire\Post;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
@@ -15,7 +16,7 @@ class Index extends Component
     #[Computed]
     public function posts()
     {
-        return Post::query()->latest()->paginate(10);
+        return Cache::remember('posts', now()->addDay(5), fn () => Post::query()->paginate(10));
     }
 
     public function render(): View
