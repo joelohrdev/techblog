@@ -6,6 +6,7 @@
         label="Categories"
         placeholder="Select categories..."
         searchable
+        multiple
     >
         @foreach($this->categories as $category)
             <flux:pillbox.option value="{{ $category->id }}">{{ $category->name }}</flux:pillbox.option>
