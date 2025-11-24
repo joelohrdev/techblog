@@ -6,7 +6,7 @@
             </a>
             @if(auth()->user())
             <a wire:navigate href="{{ route('dashboard') }}" class="relative px-3 py-1.5 bg-abyssal text-burning-flame rounded-lg border border-burning-flame transition-all duration-300 overflow-hidden group/btn before:absolute before:inset-0 before:rounded-lg before:p-[2px] before:bg-gradient-to-r before:from-burning-flame before:via-palladian before:to-burning-flame before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100 before:-z-10 before:animate-[spin_3s_linear_infinite] after:absolute after:inset-[2px] after:bg-abyssal after:rounded-lg after:-z-10">
-                <span class="relative z-10">Backend</span>
+                <span class="relative z-10 font-mono">Backend</span>
             </a>
             @endif
         </div>
