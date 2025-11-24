@@ -1,0 +1,224 @@
+@import 'tailwindcss';
+
+@theme {
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --color-palladian: #EEE9DF;
+    --color-oatmeal: #C9C1B1;
+    --color-blue-fantastic: #2C3B4D;
+    --color-burning-flame: #FFB162;
+    --color-truffle-trouble: #A35139;
+    --color-abyssal: #1B2632;
+
+    --animate-spin-slow: spin 3s linear infinite;
+    --animate-beam: beam 2s linear infinite;
+}
+
+@keyframes beam {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1B2632;
+    color: #EEE9DF;
+    overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1B2632;
+}
+::-webkit-scrollbar-thumb {
+    background: #2C3B4D;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #A35139;
+}
+
+/* Text Reveal Animation */
+.char-reveal {
+    display: inline-block;
+    animation: reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+    transform: translateY(120%);
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Border Beam Effect */
+.btn-beam-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px; /* Pill shape */
+}
+
+.btn-beam-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 9999px;
+    padding: 1px; /* Border width */
+    background: linear-gradient(90deg, transparent, #FFB162, transparent);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn-beam-container:hover::before {
+    opacity: 1;
+    background-size: 200% 100%;
+    animation: beam-border 2s linear infinite;
+}
+
+@keyframes beam-border {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* Alternative Beam logic for robust rotation */
+.beam-border::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    background: conic-gradient(from 90deg at 50% 50%, #0000 0%, #0000 50%, #FFB162 100%);
+    border-radius: 9999px;
+    animation: spin 2s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.beam-border:hover::after {
+    opacity: 1;
+}
+
+/* Scroll Reveal Animation - for use with x-data="scrollReveal()" */
+.scroll-reveal-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.scroll-reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fade in from different directions */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-down {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translate(0);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Page Load Reveal Animation with Blur */
+.animate-reveal-up {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+    animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-play-state: paused;
+}
+
+.animate-reveal-up.running {
+    animation-play-state: running;
+}
+
+@keyframes reveal-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Additional reveal directions for page load */
+.animate-reveal-down {
+    opacity: 0;
+    transform: translateY(-20px);
+    filter: blur(10px);
+    animation: reveal-down 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes reveal-down {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.animate-reveal-left {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(10px);
+    animation: reveal-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes reveal-left {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+.animate-reveal-right {
+    opacity: 0;
+    transform: translateX(-20px);
+    filter: blur(10px);
+    animation: reveal-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes reveal-right {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
