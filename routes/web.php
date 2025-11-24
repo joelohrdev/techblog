@@ -17,6 +17,10 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::view('posts', 'post.index')
+    ->middleware(['auth', 'verified'])
+    ->name('posts.index');
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
