@@ -5,10 +5,6 @@
     </div>
     <flux:separator variant="subtle" class="my-4" />
     <div class="max-w-2xl mx-auto">
-        <form class="space-y-6">
-            <flux:input placeholder="Title" />
-            <flux:editor />
-            <flux:button type="submit" variant="primary">Create</flux:button>
-        </form>
+        <livewire:post.create />
     </div>
 </x-layouts.app>
