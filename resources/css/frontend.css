@@ -222,3 +222,73 @@ html {
         filter: blur(0);
     }
 }
+
+/* Markdown Body Styles */
+.markdown-body h1 {
+    @apply text-3xl font-bold text-burning-flame mt-10 mb-6 tracking-tight border-b border-blue-fantastic/30 pb-2;
+}
+
+.markdown-body h2 {
+    @apply text-2xl font-semibold text-palladian mt-8 mb-4;
+}
+
+.markdown-body p {
+    @apply text-lg leading-relaxed text-oatmeal my-5 font-light;
+}
+
+.markdown-body strong {
+    @apply font-semibold text-burning-flame;
+}
+
+.markdown-body pre {
+    @apply p-5 overflow-x-auto text-sm font-mono leading-relaxed text-oatmeal;
+}
+
+.markdown-body code {
+    @apply font-mono text-burning-flame bg-blue-fantastic/20 px-1.5 py-0.5 rounded text-sm;
+}
+
+.markdown-body pre code {
+    @apply text-oatmeal bg-transparent p-0 block;
+}
+
+/* Code Block Wrapper - created by JS */
+.code-block-wrapper {
+    @apply my-8 rounded-xl overflow-hidden border border-blue-fantastic/50 shadow-lg bg-[#0F1620];
+}
+
+.code-block-header {
+    @apply flex items-center justify-between px-4 py-3 bg-blue-fantastic/20 border-b border-blue-fantastic/30 backdrop-blur-sm;
+}
+
+.code-block-header .language-label {
+    @apply text-xs font-mono text-burning-flame uppercase tracking-wider;
+}
+
+.code-block-header .window-dots {
+    @apply flex space-x-1.5;
+}
+
+.code-block-header .window-dots .dot {
+    @apply w-2.5 h-2.5 rounded-full;
+}
+
+.code-block-header .window-dots .dot-red {
+    @apply bg-truffle-trouble/50;
+}
+
+.code-block-header .window-dots .dot-yellow {
+    @apply bg-burning-flame/50;
+}
+
+.code-block-header .window-dots .dot-green {
+    @apply bg-blue-fantastic/50;
+}
+
+.code-block-header .copy-button {
+    @apply text-oatmeal/50 hover:text-burning-flame transition-colors cursor-pointer p-1 rounded hover:bg-blue-fantastic/30;
+}
+
+.code-block-header .copy-button svg {
+    @apply transition-all;
+}

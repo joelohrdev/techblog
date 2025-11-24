@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostShowController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -24,6 +25,8 @@ Route::view('posts', 'post.index')
 Route::view('posts/create', 'post.create')
     ->middleware(['auth', 'verified'])
     ->name('posts.create');
+
+Route::get('posts/{post:slug}', PostShowController::class)->name('posts.show');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
