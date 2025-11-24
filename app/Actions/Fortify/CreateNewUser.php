@@ -20,6 +20,10 @@ final class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
+        if (User::query()->exists()) {
+            abort(403, 'Registration is disabled after the first user is created.');
+        }
+
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => [

@@ -14,8 +14,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('single', 'single')->name('single');
-
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
