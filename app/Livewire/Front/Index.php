@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Front;
 
 use App\Models\Post;
@@ -10,7 +12,7 @@ use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+final class Index extends Component
 {
     use WithPagination;
 

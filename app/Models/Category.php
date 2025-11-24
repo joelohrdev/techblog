@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Carbon\CarbonImmutable;
@@ -15,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property-read CarbonImmutable $created_at
  * @property-read CarbonImmutable $updated_at
  */
-class Category extends Model
+final class Category extends Model
 {
     /** @use HasFactory<CategoryFactory> */
     use HasFactory;

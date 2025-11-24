@@ -10,7 +10,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Session;
 use Livewire\Component;
 
-class Categories extends Component
+final class Categories extends Component
 {
     #[Session]
     public ?int $selectedCategory = null;

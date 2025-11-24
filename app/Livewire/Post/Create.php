@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Post;
 
 use App\Models\Category;
@@ -11,7 +13,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class Create extends Component
+final class Create extends Component
 {
     #[Validate(['required', 'string', 'max:255'])]
     public string $title = '';
