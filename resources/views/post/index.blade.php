@@ -4,4 +4,5 @@
         <flux:button wire:navigate href="{{ route('posts.create') }}" size="sm" variant="primary">Add Post</flux:button>
     </div>
     <flux:separator variant="subtle" class="my-4" />
+    <livewire:post.index />
 </x-layouts.app>
