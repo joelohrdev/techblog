@@ -19,6 +19,9 @@ class Create extends Component
     #[Validate(['required', 'string'])]
     public string $content = '';
 
+    #[Validate(['required', 'string'])]
+    public string $summary = '';
+
     #[Validate(['array'])]
     public array $selectedCategories = [];
 
@@ -60,6 +63,7 @@ class Create extends Component
             'title' => $this->title,
             'slug' => str($this->title)->slug(),
             'content' => $this->content,
+            'summary' => $this->summary,
         ]);
 
         if (! empty($this->selectedCategories)) {

@@ -36,5 +36,7 @@
 
     <flux:editor wire:model="content" label="Content" />
 
+    <flux:input wire:model="summary" placeholder="Summary" label="Summary" />
+
     <flux:button type="submit" variant="primary">Create Post</flux:button>
 </form>
