@@ -2,36 +2,37 @@
 
 namespace App\Models;
 
-use Database\Factories\PostFactory;
+use Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Post extends Model
+/**
+ * @property-read int $id
+ * @property-read string $name
+ * @property-read string $slug
+ */
+class Category extends Model
 {
-    /** @use HasFactory<PostFactory> */
+    /** @use HasFactory<CategoryFactory> */
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'name',
         'slug',
-        'content',
-        'published_at',
     ];
 
     public function casts(): array
     {
         return [
             'id' => 'integer',
-            'title' => 'string',
+            'name' => 'string',
             'slug' => 'string',
-            'content' => 'string',
-            'published_at' => 'datetime',
         ];
     }
 
-    public function categories(): BelongsToMany
+    public function posts(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Post::class);
     }
 }
