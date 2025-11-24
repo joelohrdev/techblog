@@ -74,7 +74,7 @@ final class Create extends Component
 
         Flux::toast(text: 'Post created successfully.', variant: 'success');
 
-        $this->reset(['title', 'content', 'selectedCategories']);
+        $this->reset(['title', 'content', 'selectedCategories', 'summary']);
     }
 
     public function render(): View
