@@ -292,3 +292,133 @@ html {
 .code-block-header .copy-button svg {
     @apply transition-all;
 }
+
+/* Syntax Highlighting - Custom Theme Matching Site Colors */
+.markdown-body pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0;
+}
+
+/* Base syntax highlighting colors */
+.hljs {
+    color: var(--color-oatmeal); /* Default text */
+    background: transparent;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+    color: #7A8491;
+    font-style: italic;
+}
+
+/* Keywords, built-ins, and syntax */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst,
+.hljs-built_in,
+.hljs-builtin-name {
+    color: var(--color-burning-flame); /* Orange for keywords */
+}
+
+/* Variables, attributes, and properties */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attr,
+.hljs-attribute,
+.hljs-property {
+    color: var(--color-palladian); /* Light beige */
+}
+
+/* Strings */
+.hljs-string,
+.hljs-doctag {
+    color: #9DC08B; /* Soft green for strings */
+}
+
+/* Numbers and literals */
+.hljs-number,
+.hljs-literal,
+.hljs-regexp {
+    color: #E09F7D; /* Soft orange */
+}
+
+/* Functions and methods */
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-function .hljs-title {
+    color: #F0C987; /* Warm yellow */
+}
+
+/* Classes and types */
+.hljs-class .hljs-title,
+.hljs-type,
+.hljs-params {
+    color: var(--color-burning-flame);
+}
+
+/* Tags (HTML/XML) */
+.hljs-tag {
+    color: var(--color-palladian);
+}
+
+.hljs-tag .hljs-name {
+    color: var(--color-burning-flame);
+}
+
+.hljs-tag .hljs-attr {
+    color: #F0C987;
+}
+
+/* Operators and punctuation */
+.hljs-operator,
+.hljs-punctuation {
+    color: var(--color-oatmeal);
+}
+
+/* Meta and preprocessor */
+.hljs-meta,
+.hljs-meta-keyword,
+.hljs-meta-string {
+    color: #7A8491;
+}
+
+/* Deleted and inserted (for diffs) */
+.hljs-deletion {
+    color: var(--color-truffle-trouble);
+    background-color: rgba(163, 81, 57, 0.1);
+}
+
+.hljs-addition {
+    color: #9DC08B;
+    background-color: rgba(157, 192, 139, 0.1);
+}
+
+/* Emphasis */
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
+
+/* Links */
+.hljs-link {
+    text-decoration: underline;
+    color: var(--color-burning-flame);
+}
+
+/* Selector and symbol */
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-pseudo {
+    color: #F0C987;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+    color: var(--color-burning-flame);
+}

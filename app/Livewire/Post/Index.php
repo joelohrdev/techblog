@@ -19,7 +19,7 @@ final class Index extends Component
     {
         return Post::query()
             ->latest()
-            ->select('id', 'title')
+            ->select('id', 'title', 'updated_at')
             ->paginate(10);
     }
 
