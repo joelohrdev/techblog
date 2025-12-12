@@ -23,7 +23,7 @@ test('new users can register', function () {
 });
 
 test('registration screen cannot be rendered after first user is created', function () {
-    \App\Models\User::factory()->create();
+    App\Models\User::factory()->create();
 
     $response = $this->get(route('register'));
 
@@ -31,7 +31,7 @@ test('registration screen cannot be rendered after first user is created', funct
 });
 
 test('registration is disabled after first user is created', function () {
-    \App\Models\User::factory()->create();
+    App\Models\User::factory()->create();
 
     $response = $this->post(route('register.store'), [
         'name' => 'John Doe',
@@ -42,5 +42,5 @@ test('registration is disabled after first user is created', function () {
 
     $response->assertForbidden();
 
-    expect(\App\Models\User::query()->where('email', 'newuser@example.com')->exists())->toBeFalse();
+    expect(App\Models\User::query()->where('email', 'newuser@example.com')->exists())->toBeFalse();
 });

@@ -36,6 +36,7 @@ final class Index extends Component
                     $q->where('categories.id', $this->selectedCategory);
                 });
             })
+            ->with('categories:id,name')
             ->latest()
             ->paginate(10);
     }

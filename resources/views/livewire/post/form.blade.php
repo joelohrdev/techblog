@@ -1,8 +1,8 @@
-<form wire:submit.prevent="store" class="space-y-6">
-    <flux:input wire:model="title" placeholder="Title" label="Title" />
+<form wire:submit.prevent="submit" class="space-y-6">
+    <flux:input wire:model="form.title" placeholder="Title" label="Title" />
 
     <flux:pillbox
-        wire:model="selectedCategories"
+        wire:model="form.selectedCategories"
         label="Categories"
         placeholder="Select categories..."
         searchable
@@ -19,7 +19,7 @@
         <flux:heading size="sm">Create New Category</flux:heading>
         <div class="flex gap-3">
             <flux:input
-                wire:model="newCategoryName"
+                wire:model="form.newCategoryName"
                 placeholder="New category name..."
                 class="flex-1"
             />
@@ -35,9 +35,11 @@
 
     <flux:separator variant="subtle" />
 
-    <flux:editor wire:model="content" label="Content" />
+    <flux:editor wire:model="form.content" label="Content" />
 
-    <flux:input wire:model="summary" placeholder="Summary" label="Summary" />
+    <flux:input wire:model="form.summary" placeholder="Summary" label="Summary" />
 
-    <flux:button type="submit" variant="primary">Create Post</flux:button>
+    <flux:button type="submit" variant="primary">
+        {{ $post ? 'Update Post' : 'Create Post' }}
+    </flux:button>
 </form>

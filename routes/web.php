@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostShowController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
@@ -25,6 +26,10 @@ Route::view('posts', 'post.index')
 Route::view('posts/create', 'post.create')
     ->middleware(['auth', 'verified'])
     ->name('posts.create');
+
+Route::get('posts/edit/{post}', [PostController::class, 'edit'])
+    ->middleware(['auth', 'verified'])
+    ->name('posts.edit');
 
 Route::get('posts/{post:slug}', PostShowController::class)->name('posts.show');
 

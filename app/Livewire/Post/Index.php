@@ -17,7 +17,10 @@ final class Index extends Component
     #[Computed]
     public function posts()
     {
-        return Post::query()->latest()->paginate(10);
+        return Post::query()
+            ->latest()
+            ->select('id', 'title')
+            ->paginate(10);
     }
 
     public function render(): View
